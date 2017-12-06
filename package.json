@@ -1,0 +1,22 @@
+{
+  "name": "constructor-hangman",
+  "version": "1.0.0",
+  "description": "Hangman game created with constructors. Game is played by using node.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michaelnguyen55/Constructor-Hangman.git"
+  },
+  "author": "Michael Nguyen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/michaelnguyen55/Constructor-Hangman/issues"
+  },
+  "homepage": "https://github.com/michaelnguyen55/Constructor-Hangman#readme",
+  "dependencies": {
+    "inquirer": "^4.0.1"
+  }
+}
