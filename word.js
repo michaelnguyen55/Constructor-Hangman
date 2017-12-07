@@ -32,8 +32,14 @@ var Word = function(randomWord) {
 	this.createLetters = function() {
 		var letterArray = this.answer.split("");
 		for(var i = 0; i < letterArray.length; i++) {
-			var newLetter = new Letter(letterArray[i]);
-			this.allLetters.push(newLetter);
+			//If the letter is a space, no object will be made
+			if(letterArray[i] === " ") {
+				this.allLetters.push(" ");
+			}
+			else {
+				var newLetter = new Letter(letterArray[i]);
+				this.allLetters.push(newLetter);
+			};
 		};
 	};
 
@@ -69,7 +75,9 @@ var Word = function(randomWord) {
 
 				//Compares all letter objects' letters to the guess, then changes or keeps their state to reflect all correct letters
 				for(var i = 0; i < that.allLetters.length; i++) {
-					that.allLetters[i].checkGuess(guess);
+					if(that.allLetters[i] !== " ") {
+						that.allLetters[i].checkGuess(guess);
+					};
 				};
 
 				//If the guessed letter is in the word, shows 'correct' text
@@ -97,7 +105,12 @@ var Word = function(randomWord) {
 	this.progress = function() {
 		var text = "";
 		for(var i = 0; i < this.allLetters.length; i++) {
-			text += this.allLetters[i].currentState + " ";
+			if(this.allLetters[i] === " ") {
+				text += " ";
+			}
+			else {
+				text += this.allLetters[i].currentState + " ";
+			};
 		};
 		console.log("\n" + text);
 	};
@@ -107,7 +120,12 @@ var Word = function(randomWord) {
 		//Sets all letters' current states into one word
 		var text = "";
 		for(var i = 0; i < this.allLetters.length; i++) {
-			text += this.allLetters[i].currentState;
+			if(this.allLetters[i] === " ") {
+				text += " ";
+			}
+			else {
+				text += this.allLetters[i].currentState;
+			};
 		};
 
 		//If the remaining number of guesses is 0, shows 'Game Over' text and ends the current round
